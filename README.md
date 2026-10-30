@@ -1,6 +1,6 @@
 # Remote2FA
 
-Remote2FA is a web app that keeps a two-factor authentication (2FA) code available from any browser. Each code is protected by three words that you memorise. It is meant as a backup for when the phone that normally holds your 2FA codes is lost, stolen or out of reach.
+Remote2FA is a web app [https://xmayoral.free.je/](https://xmayoral.free.je/) that keeps a two-factor authentication (2FA) code available from any browser. Each code is protected by three words that you memorise. It is meant as a backup for when the phone that normally holds your 2FA codes is lost, stolen or out of reach.
 
 ## What it does
 
