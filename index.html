@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remote2FA</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Remote2FA</h1>
+  </header>
+
+  <main>
+    <!-- Part superior: accedir amb 3 paraules -->
+    <section id="view-access">
+      <form id="form-access" class="card" autocomplete="off">
+        <h2>Accedir amb 3 paraules</h2>
+        <div class="words">
+          <input name="w1" placeholder="paraula 1" required>
+          <input name="w2" placeholder="paraula 2" required>
+          <input name="w3" placeholder="paraula 3" required>
+        </div>
+        <button type="submit">Accedir</button>
+        <p class="msg" id="access-msg"></p>
+      </form>
+
+      <div id="codes" class="card hidden">
+        <div class="row">
+          <h2>Codi 2FA</h2>
+          <button type="button" id="btn-lock" class="secondary">Tancar</button>
+        </div>
+        <p class="current"><strong id="code" class="code" title="Copiar">------</strong> <span id="code-ttl" class="ttl"></span></p>
+        <p class="hint">Fes clic sobre el codi per copiar-lo.</p>
+        <button type="button" id="btn-delete" class="del">Eliminar aquest 2FA</button>
+      </div>
+    </section>
+
+    <!-- Part inferior: configurar un nou 2FA a partir del QR -->
+    <section id="view-setup">
+      <h2 class="section-title">Configurar nou 2FA</h2>
+      <div class="card">
+        <h2>1. Llegeix el QR</h2>
+        <div class="row">
+          <button type="button" id="btn-camera">Obrir càmera</button>
+          <label class="button secondary">Pujar imatge<input type="file" id="file-qr" accept="image/*" hidden></label>
+        </div>
+        <video id="video" playsinline muted class="hidden"></video>
+        <canvas id="canvas" hidden></canvas>
+        <details>
+          <summary>O enganxa la URI / clau manualment</summary>
+          <input id="manual-uri" placeholder="otpauth://totp/... o clau Base32">
+          <button type="button" id="btn-manual" class="secondary">Fer servir</button>
+        </details>
+        <p class="msg" id="scan-msg"></p>
+        <div id="pick" class="hidden">
+          <p class="hint">Tria el codi que vols desar: és el que coincideix amb el que mostra ara Google Authenticator.</p>
+          <ul id="pick-list"></ul>
+        </div>
+      </div>
+
+      <form id="form-setup" class="card hidden" autocomplete="off">
+        <h2>2. Comprova i desa</h2>
+        <p>Codi actual: <strong id="preview-code" class="code">------</strong> <span id="preview-ttl" class="ttl"></span></p>
+        <p class="hint">Introdueix aquest codi al servei per validar la configuració.</p>
+        <h3>3 paraules on desar-lo</h3>
+        <div class="words">
+          <input name="w1" placeholder="paraula 1" required>
+          <input name="w2" placeholder="paraula 2" required>
+          <input name="w3" placeholder="paraula 3" required>
+        </div>
+        <p class="hint">Cada combinació de 3 paraules guarda un sol codi. Si ja està en ús, n'hauràs de triar una altra. Guarda-les bé: no es poden recuperar.</p>
+        <button type="submit">Desar</button>
+        <p class="msg" id="setup-msg"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <script src="totp.js"></script>
+  <script src="vault.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

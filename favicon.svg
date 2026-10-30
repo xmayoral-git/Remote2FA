@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Escut (2FA) amb tres punts (les 3 paraules) -->
+  <rect width="64" height="64" rx="14" fill="#2563eb"/>
+  <path d="M32 9 L51 16 V30 C51 42 43 51 32 55 C21 51 13 42 13 30 V16 Z" fill="#fff"/>
+  <circle cx="23" cy="31" r="4.5" fill="#2563eb"/>
+  <circle cx="32" cy="31" r="4.5" fill="#2563eb"/>
+  <circle cx="41" cy="31" r="4.5" fill="#2563eb"/>
+</svg>

@@ -1,0 +1,11 @@
+# Stored 2FA entries and rate-limit state: runtime data, never commit
+data/*
+!data/.htaccess
+
+# Editor and OS files
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store
